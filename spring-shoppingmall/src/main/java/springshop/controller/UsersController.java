@@ -28,6 +28,13 @@ public class UsersController {
 	public String create(joinForm form) {
 		Users users = new Users();
 		users.setUserid(form.getUserid());
+		users.setUsername(form.getUsername());
+		users.setUserpasswd(form.getUserpasswd());
+		users.setUseremail(form.getUseremail());
+		users.setAddr1(form.getAddr1());
+		users.setAddr2(form.getAddr2());
+		users.setAddr3(form.getAddr3());
+		
 		
 		userService.join(users);
 		
