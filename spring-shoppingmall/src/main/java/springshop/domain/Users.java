@@ -1,5 +1,6 @@
 package springshop.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +18,15 @@ public class Users {
 	private String addr1;
 	private String addr2;
 	private String addr3;
-	
+	@Column(name = "createdate")
+	private String usercreatedate;
+
+	public String getUsercreatedate() {
+		return usercreatedate;
+	}
+	public void setUsercreatedate(String usercreatedate) {
+		this.usercreatedate = usercreatedate;
+	}
 	public long getUsernum() {
 		return usernum;
 	}
