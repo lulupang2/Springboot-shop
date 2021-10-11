@@ -5,7 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+@DynamicInsert // Insert시 Null인 필드 제외
+@DynamicUpdate // Update시 Null인 필드 제외
+@Table(name = "users")
 @Entity
 public class Users {
 	

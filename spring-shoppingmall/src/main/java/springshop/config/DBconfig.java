@@ -5,11 +5,12 @@ import javax.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 import springshop.repository.JpaUserRepository;
 import springshop.repository.UserRepository;
 import springshop.service.UserService;
-
+@EnableJpaAuditing
 @Configuration
 public class DBconfig {
 	

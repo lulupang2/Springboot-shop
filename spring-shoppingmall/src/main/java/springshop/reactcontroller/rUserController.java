@@ -20,32 +20,22 @@ import springshop.repository.JpaUserRepository;
 import springshop.repository.UserRepository;
 import springshop.service.UserService;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
-@RestController
-@RequestMapping("/api/users")
+@CrossOrigin(origins = "*") // 크로스도메인 CORS 설정
+@RestController // JSON 형태로 객체 반환
 public class rUserController {
-	private UserService userService;
+	private final UserService userService;
 
 	@Autowired
 	public rUserController(@RequestBody UserService userService) {
 		this.userService = userService;
 	}
-
-	@GetMapping // get 요청
+	@GetMapping("/api/users") // get 요청
 	public List<Users> users() {
 		return userService.findUsers(); // 모든 유저 출력
 	}
 
-	@PostMapping("/new")
-	public long create(joinForm form) {
-		Users users = new Users();
-		users.setUserid(form.getUserid());
-		users.setUsername(form.getUsername());
-		users.setUserpasswd(form.getUserpasswd());
-		users.setUseremail(form.getUseremail());
-		users.setAddr1(form.getAddr1());
-		users.setAddr2(form.getAddr2());
-		users.setAddr3(form.getAddr3());
+	@PostMapping("/api/users/new")
+	public Users createUsers(@RequestBody Users users) {
 		return userService.join(users);
 	}
 }
